@@ -79,7 +79,7 @@ app.use('/api/login', (req, res) => {
   res.send('Data received successfully');
 });
 
-// ➕ Sum endpoint
+
 app.post('/api/sum', (req, res) => {
   const { num1, num2 } = req.body;
 
