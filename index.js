@@ -60,33 +60,3 @@
 //   res.send('Data received successfully')
 // });
 
-const express = require('express');
-const app = express();
-
-app.listen(6000, () => {
-  console.log('server is running on port 6000');
-});
-
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('hello world! this is the home page');
-});
-
-app.use('/api/login', (req, res) => {
-  const { email, password } = req.body;
-  console.log(`email: ${email}, password: ${password}`);
-  res.send('Data received successfully');
-});
-
-
-app.post('/api/sum', (req, res) => {
-  const { num1, num2 } = req.body;
-
-  if (typeof num1 !== 'number' || typeof num2 !== 'number') {
-    return res.status(400).send('Both num1 and num2 must be numbers.');
-  }
-
-  const sum = num1 + num2;
-  res.send(`Sum of ${num1} and ${num2} is ${sum}`);
-});
